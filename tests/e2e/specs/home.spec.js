@@ -63,5 +63,24 @@ describe('Home Test', () => {
 
         cy.get('.eliminarCarrito').should('exist')
     });
+    it('Los productos deberian estar "Ordenados alfabeticamente"', () => {
+        cy.visit('/');
 
+        cy.get('.product:first-child .card-title').should(
+            'have.text',
+            'Barra de sonido',
+        );
+        
+        cy.get('.product:nth-of-type(2) .card-title').should(
+            'have.text',
+            'Cama',
+        );
+        
+        cy.get('.product:nth-of-type(3) .card-title').should(
+            'have.text',
+            'Laptop',
+        );
+        
+    });
 });
+
