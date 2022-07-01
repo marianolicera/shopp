@@ -29,15 +29,14 @@
                     <input type="text" class="d-none" name="productid" value="{{ product.id }}">
                     <button type="submit" class="btn btn-outline-primary agregar">Agregar a carrito</button>
                 </form>
-            {% elif (product.CartProduct ) %}
+            {% else %}
             <form action="/removeFromCart" method="POST">
                 <input type="text" class="d-none" name="productid" value="{{ product.id }}">
                 <button type="submit" class="btn btn-outline-primary eliminarCarrito">Eliminar del carrito</button>
             </form>
-            {% else %}
-                <div class="product__quantity fs-4 bold">
-                    {{ product.CartProduct.quantity }} en carrito
-                </div>
+            <div class="product__quantity fs-4 bold">
+                {{ product.CartProduct.quantity }} en carrito
+            </div>2
             {% endif %}
         </div>
     </div>
